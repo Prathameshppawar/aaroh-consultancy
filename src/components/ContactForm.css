@@ -1,0 +1,89 @@
+/* ═══════════════ Contact Form ═══════════════ */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+    max-width: 560px;
+}
+
+.contact-form__group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+}
+
+.contact-form__label {
+    font-family: var(--font-heading);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.contact-form__label span {
+    color: var(--primary);
+}
+
+.contact-form__input {
+    padding: var(--space-3) var(--space-4);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    font-size: var(--text-base);
+    color: var(--text-primary);
+    background: var(--white);
+    transition: all var(--transition-fast);
+    outline: none;
+}
+
+.contact-form__input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px var(--primary-glow);
+}
+
+.contact-form__input::placeholder {
+    color: var(--text-muted);
+}
+
+/* Chips */
+.contact-form__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+}
+
+.contact-form__chip {
+    padding: var(--space-2) var(--space-4);
+    border: 1.5px solid var(--border-color);
+    border-radius: var(--radius-full);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: var(--white);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.contact-form__chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.contact-form__chip--active {
+    background: var(--primary-subtle);
+    border-color: var(--primary);
+    color: var(--primary);
+    font-weight: 600;
+}
+
+/* Submit */
+.contact-form__submit {
+    align-self: flex-start;
+    margin-top: var(--space-2);
+}
+
+.contact-form__success {
+    color: #16a34a;
+    font-weight: 500;
+    font-size: var(--text-sm);
+    animation: fadeIn 0.3s ease;
+}

@@ -1,0 +1,265 @@
+/* ═══════════════ Mission Page ═══════════════ */
+
+.mission-hero {
+    padding-top: calc(var(--nav-height) + var(--space-16));
+    padding-bottom: var(--space-16);
+    text-align: center;
+}
+
+.mission-hero__content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.mission-hero__title {
+    font-size: var(--text-hero);
+    font-weight: 800;
+    margin-bottom: var(--space-6);
+}
+
+.mission-hero__subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Statement */
+.mission-statement {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+.mission-statement__challenges h2 {
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-4);
+}
+
+.mission-statement__intro {
+    margin-bottom: var(--space-4);
+}
+
+.mission-challenges-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+}
+
+.mission-challenges-list li {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+}
+
+.mission-challenges-list__marker {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--primary);
+    flex-shrink: 0;
+}
+
+.mission-statement__tagline {
+    font-style: italic;
+    color: var(--text-secondary);
+    border-left: 3px solid var(--primary);
+    padding-left: var(--space-4);
+}
+
+.mission-card {
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    border-radius: var(--radius-2xl);
+    padding: var(--space-10);
+    color: var(--white);
+}
+
+.mission-card__icon {
+    font-size: 2rem;
+    opacity: 0.5;
+    margin-bottom: var(--space-4);
+}
+
+.mission-card h3 {
+    font-size: var(--text-3xl);
+    color: var(--white);
+    margin-bottom: var(--space-4);
+}
+
+.mission-card p {
+    font-size: var(--text-lg);
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+/* Audience */
+.section-center-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+}
+
+.section-center-header .section-label::before {
+    display: none;
+}
+
+.audience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-5);
+}
+
+.audience-card {
+    text-align: center;
+    padding: var(--space-6);
+}
+
+.audience-card__icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--primary-subtle);
+    color: var(--primary);
+    border-radius: var(--radius-lg);
+    margin: 0 auto var(--space-3);
+    font-size: 1.1rem;
+}
+
+.audience-card__title {
+    font-size: var(--text-base);
+    font-weight: 700;
+    margin-bottom: var(--space-2);
+}
+
+.audience-card__desc {
+    font-size: var(--text-sm);
+    line-height: 1.6;
+}
+
+/* Benefits + Why Us */
+.benefits-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+}
+
+.benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    margin-top: var(--space-6);
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+    background: var(--gray-50);
+    border-radius: var(--radius-lg);
+    padding: var(--space-4) var(--space-5);
+    transition: all var(--transition-fast);
+}
+
+.benefit-item:hover {
+    background: var(--primary-subtle);
+    transform: translateX(4px);
+}
+
+.benefit-item__icon {
+    color: var(--primary);
+    font-size: 1.1rem;
+    flex-shrink: 0;
+}
+
+.benefit-item p {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.why-us-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+    margin: var(--space-6) 0 var(--space-8);
+}
+
+.why-us-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-3);
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+}
+
+.why-us-list__icon {
+    color: var(--primary);
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+/* CTA */
+.mission-cta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-12);
+    align-items: center;
+}
+
+.mission-cta__hours {
+    background: var(--gray-800);
+    border-radius: var(--radius-xl);
+    padding: var(--space-8);
+}
+
+.mission-cta__hours h3 {
+    color: var(--white);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-3);
+}
+
+.mission-cta__hours p {
+    color: var(--gray-400);
+    font-size: var(--text-sm);
+}
+
+.mission-cta__action h2 {
+    color: var(--white);
+    font-size: var(--text-3xl);
+    margin-bottom: var(--space-3);
+}
+
+.mission-cta__action p {
+    color: var(--gray-300);
+    margin-bottom: var(--space-6);
+    line-height: 1.8;
+}
+
+.mission-cta__action strong {
+    color: var(--primary-light);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .audience-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .mission-statement,
+    .benefits-layout,
+    .mission-cta {
+        grid-template-columns: 1fr;
+        gap: var(--space-8);
+    }
+
+    .audience-grid {
+        grid-template-columns: 1fr;
+    }
+}
