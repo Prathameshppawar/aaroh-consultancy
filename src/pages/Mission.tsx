@@ -1,40 +1,26 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
-import {
-    FaArrowRight,
-    FaIndustry,
-    FaRocket,
-    FaExpandArrowsAlt,
-    FaChartLine,
-    FaClipboardCheck,
-    FaLightbulb,
-    FaLaptopCode,
-    FaCheckCircle,
-    FaShieldAlt,
-    FaMoneyBillWave,
-    FaCrosshairs,
-    FaAlignLeft,
-    FaMapSigns,
-} from 'react-icons/fa';
+import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
+import whomWeServe from '../assets/whom_we_serve.png';
 import './Mission.css';
 
 const audiences = [
-    { icon: <FaIndustry />, title: 'Manufacturing MSMEs', desc: 'MSMEs in manufacturing & supply of mechanical products' },
-    { icon: <FaRocket />, title: 'New Ventures', desc: 'Entrepreneurs setting up operations from inception' },
-    { icon: <FaExpandArrowsAlt />, title: 'Expanding Businesses', desc: 'New units, new products, relocation, resource changes' },
-    { icon: <FaChartLine />, title: 'Continuous Improvement', desc: 'Cycle time reduction, line balancing, efficiency drives' },
-    { icon: <FaClipboardCheck />, title: 'Standard Practices', desc: 'Quality standards adoption, PPAP documentation' },
-    { icon: <FaLightbulb />, title: 'New Product Innovators', desc: 'Establishing manufacturing for new products' },
-    { icon: <FaLaptopCode />, title: 'ERP Providers', desc: 'Managing complex master data and multiple projects' },
+    'MSMEs in manufacturing & supply of mechanical products',
+    'Entrepreneurs starting new ventures (setting up operations from inception)',
+    'Entrepreneurs expanding existing businesses (new unit, new product, relocation)',
+    'Industry leaders driving continuous improvement (cycle time reduction, line balancing)',
+    'Industry leaders adopting standard practices & documentation (quality standards, PPAP)',
+    'Innovators establishing manufacturing for new products',
+    'ERP providers managing long implementation timelines (complex master data, multiple projects)',
 ];
 
 const benefits = [
-    { icon: <FaChartLine />, text: 'Improved productivity and quality standards' },
-    { icon: <FaMoneyBillWave />, text: 'Reduced project delays and costs' },
-    { icon: <FaCrosshairs />, text: 'Opportunity to focus on core business strategies' },
-    { icon: <FaShieldAlt />, text: 'Enhanced compliance with industry standards' },
-    { icon: <FaMapSigns />, text: 'Long-term roadmap for continuous improvement' },
+    'Improved productivity and quality standards',
+    'Reduced project delays and costs',
+    'Opportunity to focus on core business strategies',
+    'Enhanced compliance with industry standards',
+    'Long-term roadmap for continuous improvement',
 ];
 
 const whyUs = [
@@ -81,18 +67,9 @@ export default function Mission() {
                                 As an inevitable side effect of rapid technological changes, MSMEs often struggle with:
                             </p>
                             <ul className="mission-challenges-list">
-                                <li>
-                                    <span className="mission-challenges-list__marker" />
-                                    Maintaining consistent product quality
-                                </li>
-                                <li>
-                                    <span className="mission-challenges-list__marker" />
-                                    Implementing best manufacturing practices
-                                </li>
-                                <li>
-                                    <span className="mission-challenges-list__marker" />
-                                    Managing multiple business functions simultaneously
-                                </li>
+                                <li>Maintaining consistent product quality</li>
+                                <li>Implementing best manufacturing practices</li>
+                                <li>Managing multiple business functions simultaneously</li>
                             </ul>
                             <p className="mission-statement__tagline">
                                 Entrepreneurs from the MSME sector, facing these challenges regularly, may find us useful.
@@ -101,7 +78,6 @@ export default function Mission() {
 
                         <AnimatedSection className="mission-statement__mission" delay={0.15} direction="right">
                             <div className="mission-card">
-                                <FaAlignLeft className="mission-card__icon" />
                                 <h3>Our Mission</h3>
                                 <p>
                                     To simplify this industrial journey by providing practical, tailored solutions
@@ -116,24 +92,25 @@ export default function Mission() {
             {/* Whom We Serve */}
             <section className="section bg-cream" id="whom-we-serve">
                 <div className="container">
-                    <AnimatedSection className="section-center-header">
-                        <span className="section-label">Whom We Serve</span>
-                        <h2 className="section-title">Industries & Entrepreneurs We Support</h2>
-                    </AnimatedSection>
+                    <div className="whom-we-serve-layout">
+                        <AnimatedSection className="whom-we-serve__image-wrap" direction="left">
+                            <img src={whomWeServe} alt="Manufacturing and engineering teams" className="whom-we-serve__image" />
+                        </AnimatedSection>
 
-                    <div className="audience-grid">
-                        {audiences.map((a, i) => (
-                            <AnimatedSection key={a.title} delay={i * 0.07} className="audience-card card">
-                                <div className="audience-card__icon">{a.icon}</div>
-                                <h4 className="audience-card__title">{a.title}</h4>
-                                <p className="audience-card__desc">{a.desc}</p>
-                            </AnimatedSection>
-                        ))}
+                        <AnimatedSection className="whom-we-serve__content" delay={0.15} direction="right">
+                            <span className="section-label">Whom We Serve</span>
+                            <h2 className="section-title">Industries & Entrepreneurs We Support</h2>
+                            <ul className="whom-we-serve__list">
+                                {audiences.map((item) => (
+                                    <li key={item}>{item}</li>
+                                ))}
+                            </ul>
+                        </AnimatedSection>
                     </div>
                 </div>
             </section>
 
-            {/* Benefits */}
+            {/* Benefits + Why Us */}
             <section className="section" id="benefits">
                 <div className="container">
                     <div className="benefits-layout">
@@ -141,11 +118,11 @@ export default function Mission() {
                             <span className="section-label">Client Outcomes</span>
                             <h2 className="section-title">Benefits to Our Clients</h2>
                             <div className="benefits-list">
-                                {benefits.map((b, i) => (
-                                    <AnimatedSection key={b.text} delay={i * 0.08} className="benefit-item">
-                                        <div className="benefit-item__icon">{b.icon}</div>
-                                        <p>{b.text}</p>
-                                    </AnimatedSection>
+                                {benefits.map((b) => (
+                                    <div key={b} className="benefit-item">
+                                        <FaCheckCircle className="benefit-item__icon" />
+                                        <p>{b}</p>
+                                    </div>
                                 ))}
                             </div>
                         </AnimatedSection>

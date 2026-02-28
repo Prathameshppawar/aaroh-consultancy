@@ -1,32 +1,37 @@
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaCogs, FaFileAlt, FaDesktop, FaBoxes, FaCheckCircle, FaPhoneAlt } from 'react-icons/fa';
+import { FaArrowRight, FaCheckCircle, FaWhatsapp, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
 import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
 import ContactForm from '../components/ContactForm';
 import MapEmbed from '../components/MapEmbed';
+import heroBg from '../assets/services_heroBg.jpg';
+import processPlanning from '../assets/Services/process_planning.png';
+import processDocumentation from '../assets/Services/process_documentation.png';
+import erpAssistance from '../assets/Services/erp_assistance.png';
+import inventoryControl from '../assets/Services/inventory_control.png';
 import './Home.css';
 
 const services = [
     {
-        icon: <FaCogs />,
+        image: processPlanning,
         title: 'Process Planning Solutions',
         desc: 'Comprehensive process plans backed by precise documentation to ensure smooth execution, reduce bottlenecks, and maximize efficiency.',
         link: '/services#process-planning',
     },
     {
-        icon: <FaFileAlt />,
+        image: processDocumentation,
         title: 'Process Documentation',
         desc: 'SOPs, flowcharts, PFMEA, and control charts developed to ensure clarity, consistency, and compliance across your operations.',
         link: '/services#process-documentation',
     },
     {
-        icon: <FaDesktop />,
+        image: erpAssistance,
         title: 'ERP Implementation',
         desc: 'Expert guidance in ERP selection and implementation — bridging clients and providers for seamless integration and timely rollouts.',
         link: '/services#erp-implementation',
     },
     {
-        icon: <FaBoxes />,
+        image: inventoryControl,
         title: 'Inventory Control',
         desc: 'Complete support in stock classification, stock taking, and evaluation to ensure precise inventory management and informed decisions.',
         link: '/services#inventory-control',
@@ -62,7 +67,10 @@ export default function Home() {
             longitude: 73.806925,
         },
         openingHours: 'Mo-Sa 09:30-18:30',
-        sameAs: [],
+        sameAs: [
+            'https://www.linkedin.com/company/aaroh-manufacturing-consultancy/',
+            'https://www.facebook.com/profile.php?id=61587200074215',
+        ],
     };
 
     return (
@@ -75,60 +83,36 @@ export default function Home() {
                 jsonLd={jsonLd}
             />
 
-            {/* ── Hero ── */}
-            <section className="hero bg-gradient">
+            {/* ── Hero with background image ── */}
+            <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
+                <div className="hero__overlay" />
                 <div className="container hero__inner">
                     <AnimatedSection className="hero__content">
-                        <span className="hero__badge">
-                            Manufacturing Consulting Excellence
-                        </span>
                         <h1 className="hero__title">
-                            Consulting Excellence for{' '}
-                            <span className="text-gradient">Manufacturing Growth</span>
+                            Consulting Excellence for Manufacturing Growth
                         </h1>
                         <p className="hero__subtitle">
-                            We are a business consulting entity that offers the most suitable solutions
-                            for challenges in the manufacturing field — particularly for the MSME sector —
-                            helping organizations achieve their goals and ascend towards operational excellence.
+                            We offer the most suitable solutions for challenges in the manufacturing field —
+                            particularly for the MSME sector — helping organizations achieve their goals
+                            and ascend towards operational excellence.
                         </p>
                         <div className="hero__actions">
                             <Link to="/services" className="btn btn-primary btn-lg">
                                 Explore Our Services <FaArrowRight />
                             </Link>
-                            <a href="#contact" className="btn btn-secondary btn-lg">
-                                <FaPhoneAlt /> Get in Touch
+                            <a href="#contact" className="btn btn-secondary btn-lg" style={{ borderColor: 'rgba(255,255,255,0.3)', color: '#fff' }}>
+                                Get in Touch
                             </a>
-                        </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection className="hero__visual" delay={0.2} direction="right">
-                        <div className="hero__stats-grid">
-                            <div className="hero__stat-card">
-                                <span className="hero__stat-number">4</span>
-                                <span className="hero__stat-label">Core Services</span>
-                            </div>
-                            <div className="hero__stat-card hero__stat-card--accent">
-                                <span className="hero__stat-number">MSME</span>
-                                <span className="hero__stat-label">Focused Solutions</span>
-                            </div>
-                            <div className="hero__stat-card">
-                                <span className="hero__stat-number">360°</span>
-                                <span className="hero__stat-label">Manufacturing Support</span>
-                            </div>
-                            <div className="hero__stat-card">
-                                <span className="hero__stat-number">ISO</span>
-                                <span className="hero__stat-label">Compliant Practices</span>
-                            </div>
                         </div>
                     </AnimatedSection>
                 </div>
             </section>
 
-            {/* ── Core Services ── */}
+            {/* ── Core Services — vertical cards ── */}
             <section className="section" id="services">
                 <div className="container">
                     <AnimatedSection className="services-header">
-                        <span className="section-label">What We Offer</span>
+                        {/* <span className="section-label">What We Offer</span> */}
                         <h2 className="section-title">Our Core Services</h2>
                         <p className="section-subtitle">
                             Practical, tailored solutions that drive efficiency and growth for manufacturing businesses at every stage.
@@ -138,13 +122,17 @@ export default function Home() {
                     <div className="services-grid">
                         {services.map((service, i) => (
                             <AnimatedSection key={service.title} delay={i * 0.1}>
-                                <Link to={service.link} className="service-card card">
-                                    <div className="service-card__icon">{service.icon}</div>
-                                    <h3 className="service-card__title">{service.title}</h3>
-                                    <p className="service-card__desc">{service.desc}</p>
-                                    <span className="service-card__link">
-                                        Learn More <FaArrowRight />
-                                    </span>
+                                <Link to={service.link} className="service-card">
+                                    <div className="service-card__img-wrap">
+                                        <img src={service.image} alt={service.title} className="service-card__img" />
+                                    </div>
+                                    <div className="service-card__body">
+                                        <h3 className="service-card__title">{service.title}</h3>
+                                        <p className="service-card__desc">{service.desc}</p>
+                                        <span className="service-card__link">
+                                            Learn More <FaArrowRight />
+                                        </span>
+                                    </div>
                                 </Link>
                             </AnimatedSection>
                         ))}
@@ -177,19 +165,19 @@ export default function Home() {
 
                         <AnimatedSection className="why-visual" delay={0.2} direction="right">
                             <div className="why-card-stack">
-                                <div className="why-card why-card--1">
+                                <div className="why-card">
                                     <span className="why-card__num">01</span>
                                     <p>Deep experience with startups & MSMEs</p>
                                 </div>
-                                <div className="why-card why-card--2">
+                                <div className="why-card">
                                     <span className="why-card__num">02</span>
                                     <p>Tailored solutions for resource-constrained businesses</p>
                                 </div>
-                                <div className="why-card why-card--3">
+                                <div className="why-card">
                                     <span className="why-card__num">03</span>
                                     <p>Cost-effective outsourcing for process planning</p>
                                 </div>
-                                <div className="why-card why-card--4">
+                                <div className="why-card">
                                     <span className="why-card__num">04</span>
                                     <p>Strengthened supply chains through improved productivity</p>
                                 </div>
@@ -199,53 +187,36 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* ── Contact ── */}
-            <section className="section" id="contact">
+            {/* ── Contact — title + desc on top, map + form side by side ── */}
+            <section className="section bg-cream" id="contact">
                 <div className="container">
-                    <div className="contact-grid">
-                        <AnimatedSection className="contact-info">
-                            <span className="section-label">Reach Out</span>
-                            <h2 className="section-title">Let's Discuss Your Requirements</h2>
-                            <p className="section-subtitle">
-                                In case of requirement, please feel free to contact us. We're looking forward to serving you!
-                            </p>
-                            <div className="contact-details">
-                                <div className="contact-detail">
-                                    <FaPhoneAlt className="contact-detail__icon" />
-                                    <div>
-                                        <strong>Phone / WhatsApp</strong>
-                                        <p>+91-9822295398</p>
-                                    </div>
-                                </div>
-                                <div className="contact-detail">
-                                    <FaFileAlt className="contact-detail__icon" />
-                                    <div>
-                                        <strong>Email</strong>
-                                        <p>director@aarohmc.com</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </AnimatedSection>
-
-                        <AnimatedSection delay={0.15}>
-                            <ContactForm />
-                        </AnimatedSection>
-                    </div>
-                </div>
-            </section>
-
-            {/* ── Map ── */}
-            <section className="section-sm bg-cream" id="location">
-                <div className="container">
-                    <AnimatedSection>
-                        <div className="map-section">
-                            <div className="map-section__header">
-                                <h3>Find Us</h3>
-                                <p>Pune, Maharashtra, India</p>
-                            </div>
-                            <MapEmbed />
+                    <AnimatedSection className="contact-header">
+                        <span className="section-label">Reach Out</span>
+                        <h2 className="section-title">Let's Discuss Your Requirements</h2>
+                        <p className="contact-header__desc">
+                            In case of any requirement, please feel free to contact us. Whether you're setting up
+                            a new manufacturing unit or looking to optimize existing operations — we're here to help.
+                        </p>
+                        <div className="contact-header__info">
+                            <span>Phone / WhatsApp: <strong>+91-9822295398</strong></span>
+                            <span>Email: <strong>director@aarohmc.com</strong></span>
+                            <span>Mon – Sat: 9:30 AM – 6:30 PM</span>
+                        </div>
+                        <div className="contact-socials">
+                            <a href="https://wa.me/919822295398?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services." target="_blank" rel="noopener noreferrer" className="contact-social contact-social--whatsapp" aria-label="WhatsApp"><FaWhatsapp /></a>
+                            <a href="https://www.linkedin.com/company/aaroh-manufacturing-consultancy/" target="_blank" rel="noopener noreferrer" className="contact-social contact-social--linkedin" aria-label="LinkedIn"><FaLinkedinIn /></a>
+                            <a href="https://www.facebook.com/profile.php?id=61587200074215" target="_blank" rel="noopener noreferrer" className="contact-social contact-social--facebook" aria-label="Facebook"><FaFacebookF /></a>
                         </div>
                     </AnimatedSection>
+
+                    <div className="contact-row">
+                        <AnimatedSection className="contact-row__form" direction="left">
+                            <ContactForm />
+                        </AnimatedSection>
+                        <AnimatedSection className="contact-row__map" delay={0.15} direction="right">
+                            <MapEmbed />
+                        </AnimatedSection>
+                    </div>
                 </div>
             </section>
         </>

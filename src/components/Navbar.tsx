@@ -36,11 +36,7 @@ export default function Navbar() {
             <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
                 <div className="navbar__inner container">
                     <Link to="/" className="navbar__logo" aria-label="Aaroh Manufacturing Consultancy Home">
-                        <span className="navbar__logo-mark">A</span>
-                        <span className="navbar__logo-text">
-                            <span className="navbar__logo-name">Aaroh</span>
-                            <span className="navbar__logo-sub">Manufacturing Consultancy</span>
-                        </span>
+                        <img src="/logo.jpg" alt="Aaroh Manufacturing Consultancy" className="navbar__logo-img" />
                     </Link>
 
                     <ul className="navbar__links">
@@ -56,7 +52,7 @@ export default function Navbar() {
                         ))}
                     </ul>
 
-                    <Link to="/services#contact" className="navbar__cta btn btn-primary btn-sm">
+                    <Link to="/#contact" className="navbar__cta btn btn-primary btn-sm">
                         Get in Touch
                     </Link>
 
@@ -92,7 +88,7 @@ export default function Navbar() {
                         ))}
                     </ul>
                     <Link
-                        to="/services#contact"
+                        to="/#contact"
                         className="btn btn-primary btn-lg mobile-menu__cta"
                         onClick={() => setIsOpen(false)}
                     >

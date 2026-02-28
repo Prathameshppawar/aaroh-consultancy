@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaLinkedinIn, FaFacebookF, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaLinkedinIn, FaFacebookF, FaEnvelope, FaPhoneAlt, FaMapMarkerAlt, FaWhatsapp } from 'react-icons/fa';
 import './Footer.css';
 
 export default function Footer() {
@@ -12,11 +12,7 @@ export default function Footer() {
                     {/* Brand */}
                     <div className="footer__brand">
                         <Link to="/" className="footer__logo">
-                            <span className="footer__logo-mark">A</span>
-                            <span className="footer__logo-text">
-                                <span className="footer__logo-name">Aaroh</span>
-                                <span className="footer__logo-sub">Manufacturing Consultancy</span>
-                            </span>
+                            <img src="/logo.jpg" alt="Aaroh Manufacturing Consultancy" className="footer__logo-img" />
                         </Link>
                         <p className="footer__tagline">
                             Consulting excellence for manufacturing growth. Tailored solutions for MSMEs to ascend towards operational efficiency.
@@ -76,7 +72,16 @@ export default function Footer() {
                     <p>© {currentYear} Aaroh Manufacturing Consultancy. All rights reserved.</p>
                     <div className="footer__socials">
                         <a
-                            href="https://linkedin.com"
+                            href="https://wa.me/919822295398?text=Hello%2C%20I%27d%20like%20to%20know%20more%20about%20your%20services."
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            aria-label="WhatsApp"
+                            className="footer__social footer__social--whatsapp"
+                        >
+                            <FaWhatsapp />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/company/aaroh-manufacturing-consultancy/"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
@@ -85,7 +90,7 @@ export default function Footer() {
                             <FaLinkedinIn />
                         </a>
                         <a
-                            href="https://facebook.com"
+                            href="https://www.facebook.com/profile.php?id=61587200074215"
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"

@@ -8,19 +8,33 @@ import About from './pages/About';
 import Mission from './pages/Mission';
 import Services from './pages/Services';
 import Blogs from './pages/Blogs';
+import BlogPost from './pages/BlogPost';
 
-function ScrollToTop() {
-  const { pathname } = useLocation();
+function ScrollToHash() {
+  const { pathname, hash } = useLocation();
+
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      // Wait for DOM to render, then scroll to the element
+      const timer = setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
   return null;
 }
 
 function AppLayout() {
   return (
     <>
-      <ScrollToTop />
+      <ScrollToHash />
       <Navbar />
       <main style={{ paddingTop: 0 }}>
         <Routes>
@@ -29,6 +43,7 @@ function AppLayout() {
           <Route path="/mission" element={<Mission />} />
           <Route path="/services" element={<Services />} />
           <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs/:slug" element={<BlogPost />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

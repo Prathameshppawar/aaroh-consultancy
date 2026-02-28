@@ -1,6 +1,5 @@
 import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
-import { FaQuoteLeft, FaHandshake, FaStar, FaBullseye } from 'react-icons/fa';
 import './About.css';
 
 export default function About() {
@@ -22,7 +21,6 @@ export default function About() {
                             About <span className="text-gradient">Aaroh</span>
                         </h1>
                         <div className="about-hero__etymology">
-                            <FaQuoteLeft className="about-hero__quote-icon" />
                             <p className="about-hero__quote">
                                 <em>Aaroh</em> is a Sanskrit word meaning <strong>'ascend'</strong>.
                                 As the name suggests, Aaroh Manufacturing Consultancy provides user-friendly
@@ -47,9 +45,6 @@ export default function About() {
 
                     <div className="about-values-grid">
                         <AnimatedSection className="about-value-card card" delay={0}>
-                            <div className="about-value-card__icon">
-                                <FaBullseye />
-                            </div>
                             <h3>Practical Solutions</h3>
                             <p>
                                 We don't believe in one-size-fits-all. Every recommendation is tailored to your unique manufacturing challenges, scale, and goals.
@@ -57,9 +52,6 @@ export default function About() {
                         </AnimatedSection>
 
                         <AnimatedSection className="about-value-card card" delay={0.1}>
-                            <div className="about-value-card__icon">
-                                <FaHandshake />
-                            </div>
                             <h3>Partnership Approach</h3>
                             <p>
                                 We work alongside your team — not above it. Our consultants integrate deeply to understand your operations from within.
@@ -67,9 +59,6 @@ export default function About() {
                         </AnimatedSection>
 
                         <AnimatedSection className="about-value-card card" delay={0.2}>
-                            <div className="about-value-card__icon">
-                                <FaStar />
-                            </div>
                             <h3>MSME Commitment</h3>
                             <p>
                                 The MSME sector is the backbone of India's manufacturing economy. We're committed to empowering this vital sector with world-class consulting.

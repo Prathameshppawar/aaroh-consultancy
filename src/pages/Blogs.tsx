@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
-import { FaPenFancy, FaArrowRight, FaLinkedinIn } from 'react-icons/fa';
+import { FaArrowRight, FaLinkedinIn } from 'react-icons/fa';
+import { blogPosts } from '../blogs/blogData';
 import './Blogs.css';
 
 export default function Blogs() {
+    const hasPosts = blogPosts.length > 0;
+
     return (
         <>
             <SEOHead
@@ -30,48 +33,54 @@ export default function Blogs() {
                 </div>
             </section>
 
-            {/* Coming Soon */}
-            <section className="section">
+            {/* Blog Posts */}
+            {hasPosts ? (
+                <section className="section">
+                    <div className="container">
+                        <div className="blogs-grid">
+                            {blogPosts.map((post, i) => (
+                                <AnimatedSection key={post.slug} delay={i * 0.1}>
+                                    <Link to={`/blogs/${post.slug}`} className="blog-card">
+                                        <div className="blog-card__img-wrap">
+                                            <img src={post.image} alt={post.title} className="blog-card__img" />
+                                        </div>
+                                        <div className="blog-card__body">
+                                            <div className="blog-card__tags">
+                                                {post.tags.slice(0, 3).map((tag) => (
+                                                    <span key={tag} className="blog-card__tag">{tag}</span>
+                                                ))}
+                                            </div>
+                                            <h2 className="blog-card__title">{post.title}</h2>
+                                            <p className="blog-card__desc">{post.description}</p>
+                                            <div className="blog-card__meta">
+                                                <span>{post.date}</span>
+                                                <span className="blog-card__read-more">
+                                                    Read Article <FaArrowRight />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                </AnimatedSection>
+                            ))}
+                        </div>
+                    </div>
+                </section>
+            ) : null}
+
+            {/* LinkedIn CTA */}
+            <section className="section-sm bg-cream">
                 <div className="container">
-                    <AnimatedSection className="blogs-coming-soon">
-                        <div className="blogs-coming-soon__icon">
-                            <FaPenFancy />
-                        </div>
-                        <h2>Fresh Content Coming Soon</h2>
-                        <p>
-                            We're preparing insightful articles on manufacturing best practices,
-                            process optimization techniques, and MSME growth strategies. Stay tuned!
-                        </p>
-
-                        <div className="blogs-topics">
-                            <h3>Topics We'll Cover</h3>
-                            <div className="blogs-topics__grid">
-                                {[
-                                    'Process Planning Best Practices',
-                                    'ERP Implementation Guide for MSMEs',
-                                    'Quality Documentation Standards',
-                                    'Inventory Optimization Strategies',
-                                    'Line Balancing Techniques',
-                                    'PPAP Documentation Essentials',
-                                ].map((topic) => (
-                                    <span key={topic} className="blogs-topic-tag">{topic}</span>
-                                ))}
-                            </div>
-                        </div>
-
-                        <div className="blogs-actions">
-                            <a
-                                href="https://linkedin.com"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="btn btn-dark btn-lg"
-                            >
-                                <FaLinkedinIn /> Follow Us on LinkedIn
-                            </a>
-                            <Link to="/#contact" className="btn btn-secondary btn-lg">
-                                Subscribe for Updates <FaArrowRight />
-                            </Link>
-                        </div>
+                    <AnimatedSection className="blogs-linkedin-cta">
+                        <h3>More insights on LinkedIn</h3>
+                        <p>Follow us for regular updates on manufacturing best practices and industry trends.</p>
+                        <a
+                            href="https://www.linkedin.com/company/aaroh-manufacturing-consultancy/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-dark"
+                        >
+                            <FaLinkedinIn /> Follow Us on LinkedIn
+                        </a>
                     </AnimatedSection>
                 </div>
             </section>
