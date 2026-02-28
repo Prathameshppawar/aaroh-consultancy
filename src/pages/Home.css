@@ -3,7 +3,7 @@
 /* ── Hero with background image ── */
 .hero {
     position: relative;
-    min-height: 85vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     padding-top: var(--nav-height);

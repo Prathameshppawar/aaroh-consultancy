@@ -1,11 +1,28 @@
 /* ═══════════════ About Page ═══════════════ */
 
+/* Hero with background image */
 .about-hero {
-    padding-top: calc(var(--nav-height) + var(--space-16));
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--nav-height) + var(--space-12));
     padding-bottom: var(--space-16);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.about-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.55));
+    z-index: 1;
 }
 
 .about-hero__content {
+    position: relative;
+    z-index: 2;
     max-width: 720px;
     margin: 0 auto;
     text-align: center;
@@ -15,31 +32,30 @@
     font-size: var(--text-hero);
     font-weight: 800;
     margin-bottom: var(--space-8);
+    color: var(--white);
 }
 
 .about-hero__etymology {
-    background: var(--white);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius-2xl);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.15);
     padding: var(--space-8) var(--space-10);
-    position: relative;
     text-align: left;
 }
 
 .about-hero__quote {
     font-size: var(--text-lg);
     line-height: 1.9;
-    color: #666666;
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .about-hero__quote em {
-    color: var(--primary);
+    color: var(--primary-light);
     font-style: italic;
     font-weight: 600;
 }
 
 .about-hero__quote strong {
-    color: var(--text-primary);
+    color: var(--white);
 }
 
 /* Values */
@@ -86,13 +102,13 @@
 
 .about-cta h2 {
     font-size: var(--text-4xl);
-    color: var(--white);
+    color: var(--text-primary);
     margin-bottom: var(--space-3);
 }
 
 .about-cta p {
     font-size: var(--text-lg);
-    color: var(--gray-300);
+    color: #666666;
     margin-bottom: var(--space-8);
     max-width: 500px;
     margin-left: auto;

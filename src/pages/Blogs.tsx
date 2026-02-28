@@ -3,6 +3,7 @@ import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
 import { FaArrowRight, FaLinkedinIn } from 'react-icons/fa';
 import { blogPosts } from '../blogs/blogData';
+import heroBg from '../assets/hero_blogs.png';
 import './Blogs.css';
 
 export default function Blogs() {
@@ -18,12 +19,12 @@ export default function Blogs() {
             />
 
             {/* Hero */}
-            <section className="blogs-hero bg-gradient">
+            <section className="blogs-hero" style={{ backgroundImage: `url(${heroBg})` }}>
+                <div className="blogs-hero__overlay" />
                 <div className="container">
                     <AnimatedSection className="blogs-hero__content">
-                        <span className="section-label">Insights & Articles</span>
                         <h1 className="blogs-hero__title">
-                            Manufacturing <span className="text-gradient">Insights</span>
+                            Manufacturing Insights
                         </h1>
                         <p className="blogs-hero__subtitle">
                             Expert perspectives on process optimization, quality standards, and MSME growth strategies

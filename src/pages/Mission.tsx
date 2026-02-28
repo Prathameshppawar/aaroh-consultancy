@@ -3,6 +3,7 @@ import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
 import { FaArrowRight, FaCheckCircle } from 'react-icons/fa';
 import whomWeServe from '../assets/whom_we_serve.png';
+import heroBg from '../assets/hero_mission.png';
 import './Mission.css';
 
 const audiences = [
@@ -41,11 +42,11 @@ export default function Mission() {
                 canonical="/mission"
             />
 
-            {/* Hero */}
-            <section className="mission-hero bg-gradient">
+            {/* Hero with background image */}
+            <section className="mission-hero" style={{ backgroundImage: `url(${heroBg})` }}>
+                <div className="mission-hero__overlay" />
                 <div className="container">
                     <AnimatedSection className="mission-hero__content">
-                        <span className="section-label">Our Purpose</span>
                         <h1 className="mission-hero__title">
                             Our Vision, <span className="text-gradient">Our Mission</span>
                         </h1>
@@ -147,7 +148,7 @@ export default function Mission() {
             </section>
 
             {/* Working Hours + CTA */}
-            <section className="section-sm bg-dark">
+            <section className="section-sm bg-cream">
                 <div className="container">
                     <AnimatedSection className="mission-cta">
                         <div className="mission-cta__hours">

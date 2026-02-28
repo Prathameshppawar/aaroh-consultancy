@@ -15,7 +15,7 @@
 }
 
 .navbar--scrolled {
-    background: rgba(26, 26, 26, 0.92);
+    background: rgba(96, 95, 95, 0.869);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
@@ -83,7 +83,7 @@
     text-decoration: none;
     background: transparent;
     color: var(--white);
-    border: 1.5px solid rgba(255, 255, 255, 0.4);
+    border: 0.5px solid rgba(255, 255, 255, 0.4);
     padding: var(--space-2) var(--space-5);
     font-size: var(--text-sm);
     font-weight: 600;
@@ -92,7 +92,7 @@
 
 .navbar__cta:hover {
     background: var(--white);
-    color: var(--black);
+    color: var(--white);
     border-color: var(--white);
 }
 

@@ -143,7 +143,7 @@ export default function Services() {
             ))}
 
             {/* CTA */}
-            <section className="section bg-dark" id="contact">
+            <section className="section bg-cream" id="contact">
                 <div className="container">
                     <AnimatedSection className="services-cta">
                         <h2>Ready to Optimize Your Manufacturing Operations?</h2>
@@ -154,7 +154,7 @@ export default function Services() {
                             <a href="/#contact" className="btn btn-primary btn-lg">
                                 Get a Free Consultation <FaArrowRight />
                             </a>
-                            <Link to="/mission" className="btn btn-secondary btn-lg" style={{ borderColor: 'rgba(255,255,255,0.2)', color: '#000' }}>
+                            <Link to="/mission" className="btn btn-secondary btn-lg">
                                 Learn About Our Mission
                             </Link>
                         </div>

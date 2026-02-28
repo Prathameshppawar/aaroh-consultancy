@@ -1,9 +1,10 @@
 /* ═══════════════ Footer ═══════════════ */
 
 .footer {
-    background: var(--gray-900);
-    color: var(--gray-300);
+    background: var(--white);
+    color: var(--text-secondary);
     padding: var(--space-16) 0 var(--space-8);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer__grid {
@@ -11,6 +12,8 @@
     grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
     gap: var(--space-10);
     margin-bottom: var(--space-12);
+    padding-bottom: var(--space-12);
+    border-bottom: 1px solid var(--border-color);
 }
 
 /* Brand */
@@ -30,7 +33,7 @@
 .footer__tagline {
     font-size: var(--text-sm);
     line-height: 1.7;
-    color: var(--gray-400);
+    color: #666666;
     max-width: 280px;
 }
 
@@ -39,7 +42,7 @@
     font-family: var(--font-heading);
     font-size: var(--text-sm);
     font-weight: 600;
-    color: var(--white);
+    color: var(--text-primary);
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-bottom: var(--space-4);
@@ -53,7 +56,7 @@
 
 .footer__list a {
     font-size: var(--text-sm);
-    color: var(--gray-400);
+    color: #666666;
     transition: color var(--transition-fast);
 }
 
@@ -73,7 +76,7 @@
     align-items: center;
     gap: var(--space-2);
     font-size: var(--text-sm);
-    color: var(--gray-400);
+    color: #666666;
 }
 
 .footer__contact li svg {
@@ -83,7 +86,7 @@
 }
 
 .footer__contact a {
-    color: var(--gray-400);
+    color: #666666;
     transition: color var(--transition-fast);
 }
 
@@ -94,17 +97,17 @@
 .footer__hours {
     margin-top: var(--space-4);
     padding-top: var(--space-4);
-    border-top: 1px solid var(--gray-800);
+    border-top: 1px solid var(--border-color);
 }
 
 .footer__hours p {
     font-size: var(--text-xs);
-    color: var(--gray-500);
+    color: #666666;
     line-height: 1.8;
 }
 
 .footer__hours strong {
-    color: var(--gray-300);
+    color: var(--text-primary);
 }
 
 /* Bottom */
@@ -112,46 +115,45 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: var(--space-8);
-    border-top: 1px solid var(--gray-800);
 }
 
 .footer__bottom p {
     font-size: var(--text-xs);
-    color: var(--gray-500);
+    color: #666666;
 }
 
 .footer__socials {
     display: flex;
-    gap: var(--space-2);
+    gap: var(--space-4);
 }
 
 .footer__social {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 36px;
-    height: 36px;
-    border-radius: var(--radius-full);
-    background: var(--gray-800);
+    font-size: 1.2rem;
     color: var(--gray-400);
-    font-size: 0.85rem;
     transition: all var(--transition-fast);
 }
 
 .footer__social:hover {
-    background: var(--primary);
-    color: var(--white);
     transform: translateY(-2px);
 }
 
-.footer__social--whatsapp {
-    background: #25d366;
-    color: var(--white);
+.footer__social--whatsapp:hover {
+    color: #25d366;
 }
 
-.footer__social--whatsapp:hover {
-    background: #1da851;
+.footer__social--linkedin:hover {
+    color: #0a66c2;
+}
+
+.footer__social--facebook:hover {
+    color: #1877f2;
+}
+
+.footer__social--email:hover {
+    color: var(--primary);
 }
 
 /* Responsive */

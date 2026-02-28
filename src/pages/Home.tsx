@@ -4,7 +4,7 @@ import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
 import ContactForm from '../components/ContactForm';
 import MapEmbed from '../components/MapEmbed';
-import heroBg from '../assets/services_heroBg.jpg';
+import heroBg from '../assets/hero-home-bg.jpg';
 import processPlanning from '../assets/Services/process_planning.png';
 import processDocumentation from '../assets/Services/process_documentation.png';
 import erpAssistance from '../assets/Services/erp_assistance.png';
@@ -92,8 +92,8 @@ export default function Home() {
                             Consulting Excellence for Manufacturing Growth
                         </h1>
                         <p className="hero__subtitle">
-                            We offer the most suitable solutions for challenges in the manufacturing field —
-                            particularly for the MSME sector — helping organizations achieve their goals
+                            We offer the most suitable solutions for challenges in the manufacturing field 
+                            particularly for the MSME sector helping organizations achieve their goals
                             and ascend towards operational excellence.
                         </p>
                         <div className="hero__actions">

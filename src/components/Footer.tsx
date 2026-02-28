@@ -85,7 +85,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="LinkedIn"
-                            className="footer__social"
+                            className="footer__social footer__social--linkedin"
                         >
                             <FaLinkedinIn />
                         </a>
@@ -94,14 +94,14 @@ export default function Footer() {
                             target="_blank"
                             rel="noopener noreferrer"
                             aria-label="Facebook"
-                            className="footer__social"
+                            className="footer__social footer__social--facebook"
                         >
                             <FaFacebookF />
                         </a>
                         <a
                             href="mailto:director@aarohmc.com"
                             aria-label="Email"
-                            className="footer__social"
+                            className="footer__social footer__social--email"
                         >
                             <FaEnvelope />
                         </a>

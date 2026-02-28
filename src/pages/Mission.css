@@ -1,12 +1,28 @@
 /* ═══════════════ Mission Page ═══════════════ */
 
 .mission-hero {
-    padding-top: calc(var(--nav-height) + var(--space-16));
+    position: relative;
+    min-height: 55vh;
+    display: flex;
+    align-items: center;
+    padding-top: calc(var(--nav-height) + var(--space-12));
     padding-bottom: var(--space-16);
     text-align: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.mission-hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.55));
+    z-index: 1;
 }
 
 .mission-hero__content {
+    position: relative;
+    z-index: 2;
     max-width: 700px;
     margin: 0 auto;
 }
@@ -15,11 +31,12 @@
     font-size: var(--text-hero);
     font-weight: 800;
     margin-bottom: var(--space-6);
+    color: var(--white);
 }
 
 .mission-hero__subtitle {
     font-size: var(--text-lg);
-    color: #666666;
+    color: rgba(255, 255, 255, 0.8);
     line-height: 1.8;
 }
 
@@ -75,21 +92,21 @@
 }
 
 .mission-card {
-    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-    border-radius: var(--radius-2xl);
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--primary);
     padding: var(--space-10);
-    color: var(--white);
 }
 
 .mission-card h3 {
     font-size: var(--text-3xl);
-    color: var(--white);
+    color: var(--text-primary);
     margin-bottom: var(--space-4);
 }
 
 .mission-card p {
     font-size: var(--text-lg);
-    color: rgba(255, 255, 255, 0.9);
+    color: #666666;
     line-height: 1.8;
 }
 
@@ -211,36 +228,36 @@
 }
 
 .mission-cta__hours {
-    background: var(--gray-800);
-    border-radius: var(--radius-xl);
+    background: var(--white);
+    border: 1px solid var(--border-color);
     padding: var(--space-8);
 }
 
 .mission-cta__hours h3 {
-    color: var(--white);
+    color: var(--text-primary);
     font-size: var(--text-lg);
     margin-bottom: var(--space-3);
 }
 
 .mission-cta__hours p {
-    color: var(--gray-400);
+    color: #666666;
     font-size: var(--text-sm);
 }
 
 .mission-cta__action h2 {
-    color: var(--white);
+    color: var(--text-primary);
     font-size: var(--text-3xl);
     margin-bottom: var(--space-3);
 }
 
 .mission-cta__action p {
-    color: var(--gray-300);
+    color: #666666;
     margin-bottom: var(--space-6);
     line-height: 1.8;
 }
 
 .mission-cta__action strong {
-    color: var(--primary-light);
+    color: var(--primary);
 }
 
 /* Responsive */

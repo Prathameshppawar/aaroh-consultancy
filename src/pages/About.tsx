@@ -1,5 +1,6 @@
 import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
+import heroBg from '../assets/hero_about.png';
 import './About.css';
 
 export default function About() {
@@ -12,11 +13,11 @@ export default function About() {
                 canonical="/about"
             />
 
-            {/* Hero */}
-            <section className="about-hero bg-gradient">
+            {/* Hero with background image */}
+            <section className="about-hero" style={{ backgroundImage: `url(${heroBg})` }}>
+                <div className="about-hero__overlay" />
                 <div className="container">
                     <AnimatedSection className="about-hero__content">
-                        <span className="section-label">Who We Are</span>
                         <h1 className="about-hero__title">
                             About <span className="text-gradient">Aaroh</span>
                         </h1>
@@ -36,7 +37,6 @@ export default function About() {
             <section className="section">
                 <div className="container">
                     <AnimatedSection className="about-values-header">
-                        <span className="section-label">Our Values</span>
                         <h2 className="section-title">What Drives Us Forward</h2>
                         <p className="section-subtitle">
                             We believe that every manufacturer — no matter the size — deserves access to expert consulting that makes a real difference.
@@ -68,8 +68,8 @@ export default function About() {
                 </div>
             </section>
 
-            {/* CTA */}
-            <section className="section-sm bg-dark">
+            {/* CTA — light */}
+            <section className="section-sm bg-cream">
                 <div className="container">
                     <AnimatedSection className="about-cta">
                         <h2>Ready to Ascend?</h2>
