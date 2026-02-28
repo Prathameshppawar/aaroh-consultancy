@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaWhatsapp, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
 import SEOHead from '../components/SEOHead';
@@ -12,6 +13,35 @@ import processDocumentation from '../assets/Services/process_documentation.png';
 import erpAssistance from '../assets/Services/erp_assistance.png';
 import inventoryControl from '../assets/Services/inventory_control.png';
 import './Home.css';
+
+/** Preloads the hero background image and dismisses the loading screen */
+function HeroPreloader({ src }: { src: string }) {
+    useEffect(() => {
+        const loader = document.getElementById('app-loader');
+        if (!loader) return;
+
+        const img = new Image();
+        img.src = src;
+
+        const dismiss = () => {
+            loader.classList.add('hide');
+            // Remove from DOM after transition
+            setTimeout(() => loader.remove(), 600);
+        };
+
+        if (img.complete) {
+            dismiss();
+        } else {
+            img.onload = dismiss;
+            img.onerror = dismiss;
+            // Fallback timeout — don't block forever
+            setTimeout(dismiss, 5000);
+        }
+    }, [src]);
+
+    return null;
+}
+
 
 const services = [
     {
@@ -84,6 +114,8 @@ export default function Home() {
                 jsonLd={jsonLd}
             />
 
+            <HeroPreloader src={heroBg} />
+
             {/* ── Hero ── */}
             <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
                 <div className="hero__overlay" />
@@ -93,7 +125,7 @@ export default function Home() {
                             Consulting Excellence for Manufacturing Growth
                         </h1>
                         <p className="hero__subtitle">
-                            We offer the most suitable solutions for challenges in the manufacturing field 
+                            We offer the most suitable solutions for challenges in the manufacturing field
                             particularly for the MSME sector helping organizations achieve their goals
                             and ascend towards operational excellence.
                         </p>
