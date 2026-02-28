@@ -1,0 +1,27 @@
+# Cloudflare Pages custom headers
+# https://developers.cloudflare.com/pages/configuration/headers/
+
+# All pages — security + performance
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# Hashed assets — immutable cache (Vite adds hash to filenames)
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images and fonts — long cache
+*.jpg
+  Cache-Control: public, max-age=2592000
+*.png
+  Cache-Control: public, max-age=2592000
+*.svg
+  Cache-Control: public, max-age=2592000
+*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML — always revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate

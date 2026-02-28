@@ -1,0 +1,8 @@
+/*
+  Cloudflare Pages SPA routing.
+  All paths that don't match a static file get served index.html.
+*/
+/* https://developers.cloudflare.com/pages/configuration/redirects/ */
+/*  /path  /destination  statuscode  */
+/*  Catch-all for SPA client-side routing  */
+/*  /some-path  /index.html  200  */

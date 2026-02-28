@@ -37,7 +37,7 @@
   --border-color: var(--gray-200);
 
   /* Typography */
-  --font-body: Arial, Helvetica, sans-serif;
+  --font-body: 'Space Grotesk', Arial, Helvetica, sans-serif;
   --font-heading: Arial, Helvetica, sans-serif;
 
   --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.75rem);
