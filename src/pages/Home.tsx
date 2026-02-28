@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
-import { FaArrowRight, FaCheckCircle, FaWhatsapp, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
+import { FaArrowRight, FaWhatsapp, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
 import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
 import ContactForm from '../components/ContactForm';
 import MapEmbed from '../components/MapEmbed';
+import { blogPosts } from '../blogs/blogData';
 import heroBg from '../assets/hero-home-bg.jpg';
-import processPlanning from '../assets/Services/process_planning.png';
+import industryVisit from '../assets/industry_visit.png';
+import processPlanning from '../assets/Services/planning.jpg';
 import processDocumentation from '../assets/Services/process_documentation.png';
 import erpAssistance from '../assets/Services/erp_assistance.png';
 import inventoryControl from '../assets/Services/inventory_control.png';
@@ -15,35 +17,34 @@ const services = [
     {
         image: processPlanning,
         title: 'Process Planning Solutions',
-        desc: 'Comprehensive process plans backed by precise documentation to ensure smooth execution, reduce bottlenecks, and maximize efficiency.',
+        desc: 'Comprehensive process plans that optimize every step of your manufacturing workflow.',
         link: '/services#process-planning',
     },
     {
         image: processDocumentation,
         title: 'Process Documentation',
-        desc: 'SOPs, flowcharts, PFMEA, and control charts developed to ensure clarity, consistency, and compliance across your operations.',
+        desc: 'SOPs, flowcharts, PFMEA, and control charts for clarity and compliance.',
         link: '/services#process-documentation',
     },
     {
         image: erpAssistance,
         title: 'ERP Implementation',
-        desc: 'Expert guidance in ERP selection and implementation — bridging clients and providers for seamless integration and timely rollouts.',
+        desc: 'Expert guidance in ERP selection and seamless integration for your operations.',
         link: '/services#erp-implementation',
     },
     {
         image: inventoryControl,
         title: 'Inventory Control',
-        desc: 'Complete support in stock classification, stock taking, and evaluation to ensure precise inventory management and informed decisions.',
+        desc: 'Complete support in stock classification, stock taking, and evaluation.',
         link: '/services#inventory-control',
     },
 ];
 
-const benefits = [
-    'Improved productivity and quality standards',
-    'Reduced project delays and costs',
-    'Focus on your core business strategies',
-    'Enhanced compliance with industry standards',
-    'Long-term roadmap for continuous improvement',
+const differentiators = [
+    { num: '01', text: 'Hands-on experience with MSMEs and startups across diverse manufacturing sectors' },
+    { num: '02', text: 'Practical, shop-floor-tested solutions, not theoretical frameworks' },
+    { num: '03', text: 'Cost-effective consulting designed for resource-constrained businesses' },
+    { num: '04', text: 'End-to-end support from assessment to implementation to training' },
 ];
 
 export default function Home() {
@@ -83,7 +84,7 @@ export default function Home() {
                 jsonLd={jsonLd}
             />
 
-            {/* ── Hero with background image ── */}
+            {/* ── Hero ── */}
             <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
                 <div className="hero__overlay" />
                 <div className="container hero__inner">
@@ -108,11 +109,61 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* ── Core Services — vertical cards ── */}
-            <section className="section" id="services">
+            {/* ── Who We Are ── */}
+            <section className="section" id="about-intro">
+                <div className="container">
+                    <div className="about-intro">
+                        <AnimatedSection className="about-intro__content" direction="left">
+                            <h2 className="section-title">Simplifying Manufacturing Operations for MSMEs</h2>
+                            <p className="about-intro__text">
+                                Aaroh Manufacturing Consultancy partners with MSMEs and startups in the manufacturing
+                                sector to streamline operations, optimize processes, and drive sustainable growth.
+                            </p>
+                            <p className="about-intro__text">
+                                With hands-on experience across diverse manufacturing environments, we deliver practical,
+                                cost-effective solutions — from process planning and documentation to ERP implementation
+                                and inventory control.
+                            </p>
+                            <Link to="/about" className="btn btn-dark">
+                                More About Us <FaArrowRight />
+                            </Link>
+                        </AnimatedSection>
+
+                        <AnimatedSection className="about-intro__image-wrap" delay={0.15} direction="right">
+                            <img src={industryVisit} alt="Aaroh consultant during an industry visit" className="about-intro__image" />
+                        </AnimatedSection>
+                    </div>
+                </div>
+            </section>
+
+            {/* ── Trust Metrics ── */}
+            <section className="metrics-strip">
+                <div className="container">
+                    <AnimatedSection className="metrics-grid">
+                        <div className="metric">
+                            <span className="metric__number">15+</span>
+                            <span className="metric__label">Years of Industry Experience</span>
+                        </div>
+                        <div className="metric">
+                            <span className="metric__number">50+</span>
+                            <span className="metric__label">Manufacturing Units Supported</span>
+                        </div>
+                        <div className="metric">
+                            <span className="metric__number">200+</span>
+                            <span className="metric__label">Processes Documented</span>
+                        </div>
+                        <div className="metric">
+                            <span className="metric__number">100%</span>
+                            <span className="metric__label">Client Satisfaction</span>
+                        </div>
+                    </AnimatedSection>
+                </div>
+            </section>
+
+            {/* ── Core Services — 2x2 Grid with hover gradient ── */}
+            <section className="section bg-cream" id="services">
                 <div className="container">
                     <AnimatedSection className="services-header">
-                        {/* <span className="section-label">What We Offer</span> */}
                         <h2 className="section-title">Our Core Services</h2>
                         <p className="section-subtitle">
                             Practical, tailored solutions that drive efficiency and growth for manufacturing businesses at every stage.
@@ -123,14 +174,13 @@ export default function Home() {
                         {services.map((service, i) => (
                             <AnimatedSection key={service.title} delay={i * 0.1}>
                                 <Link to={service.link} className="service-card">
-                                    <div className="service-card__img-wrap">
-                                        <img src={service.image} alt={service.title} className="service-card__img" />
-                                    </div>
-                                    <div className="service-card__body">
+                                    <img src={service.image} alt={service.title} className="service-card__img" />
+                                    <div className="service-card__overlay" />
+                                    <div className="service-card__content">
                                         <h3 className="service-card__title">{service.title}</h3>
                                         <p className="service-card__desc">{service.desc}</p>
                                         <span className="service-card__link">
-                                            Learn More <FaArrowRight />
+                                            Read More <FaArrowRight />
                                         </span>
                                     </div>
                                 </Link>
@@ -140,54 +190,85 @@ export default function Home() {
                 </div>
             </section>
 
-            {/* ── Why Choose Us ── */}
-            <section className="section bg-cream" id="why-us">
+            {/* ── Why MSMEs Trust Us ── */}
+            <section className="section" id="why-us">
                 <div className="container">
-                    <div className="why-grid">
-                        <AnimatedSection className="why-content" direction="left">
-                            <span className="section-label">Why Aaroh</span>
-                            <h2 className="section-title">Benefits to Our Clients</h2>
-                            <p className="section-subtitle">
-                                We bring deep experience with startups and MSMEs, delivering cost-effective solutions designed for resource-constrained businesses.
-                            </p>
-                            <ul className="why-list">
-                                {benefits.map((b) => (
-                                    <li key={b} className="why-list__item">
-                                        <FaCheckCircle className="why-list__icon" />
-                                        <span>{b}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <Link to="/mission" className="btn btn-dark">
-                                Our Mission & Vision <FaArrowRight />
-                            </Link>
-                        </AnimatedSection>
+                    <AnimatedSection className="why-header">
+                        <h2 className="section-title">Why MSMEs Trust Aaroh</h2>
+                        <p className="section-subtitle">
+                            We don't offer cookie-cutter advice. Every engagement starts with understanding
+                            your shop floor, your team, and your specific challenges.
+                        </p>
+                    </AnimatedSection>
 
-                        <AnimatedSection className="why-visual" delay={0.2} direction="right">
-                            <div className="why-card-stack">
+                    <div className="why-card-grid">
+                        {differentiators.map((d, i) => (
+                            <AnimatedSection key={d.num} delay={i * 0.1}>
                                 <div className="why-card">
-                                    <span className="why-card__num">01</span>
-                                    <p>Deep experience with startups & MSMEs</p>
+                                    <span className="why-card__num">{d.num}</span>
+                                    <p>{d.text}</p>
                                 </div>
-                                <div className="why-card">
-                                    <span className="why-card__num">02</span>
-                                    <p>Tailored solutions for resource-constrained businesses</p>
-                                </div>
-                                <div className="why-card">
-                                    <span className="why-card__num">03</span>
-                                    <p>Cost-effective outsourcing for process planning</p>
-                                </div>
-                                <div className="why-card">
-                                    <span className="why-card__num">04</span>
-                                    <p>Strengthened supply chains through improved productivity</p>
-                                </div>
-                            </div>
-                        </AnimatedSection>
+                            </AnimatedSection>
+                        ))}
                     </div>
+
+                    <AnimatedSection className="why-cta" delay={0.3}>
+                        <Link to="/mission" className="btn btn-dark">
+                            Our Mission & Vision <FaArrowRight />
+                        </Link>
+                    </AnimatedSection>
                 </div>
             </section>
 
-            {/* ── Contact — title + desc on top, map + form side by side ── */}
+            {/* ── Insights & Articles ── */}
+            <section className="section bg-cream" id="insights">
+                <div className="container">
+                    <AnimatedSection className="insights-header">
+                        <h2 className="section-title">Insights & Articles</h2>
+                        <p className="section-subtitle">
+                            Expert perspectives on manufacturing challenges, process optimization, and MSME growth strategies.
+                        </p>
+                    </AnimatedSection>
+
+                    <div className="insights-grid">
+                        {blogPosts.slice(0, 2).map((post, i) => (
+                            <AnimatedSection key={post.slug} delay={i * 0.12}>
+                                <Link to={`/blogs/${post.slug}`} className="insight-card">
+                                    <div className="insight-card__img-wrap">
+                                        <img src={post.image} alt={post.title} className="insight-card__img" />
+                                    </div>
+                                    <div className="insight-card__body">
+                                        <div className="insight-card__tags">
+                                            {post.tags.slice(0, 2).map((tag) => (
+                                                <span key={tag} className="insight-card__tag">{tag}</span>
+                                            ))}
+                                        </div>
+                                        <h3 className="insight-card__title">{post.title}</h3>
+                                        <p className="insight-card__desc">{post.description}</p>
+                                        <span className="insight-card__link">
+                                            Read Article <FaArrowRight />
+                                        </span>
+                                    </div>
+                                </Link>
+                            </AnimatedSection>
+                        ))}
+                    </div>
+
+                    <AnimatedSection className="insights-linkedin" delay={0.25}>
+                        <p>Follow us for regular updates on manufacturing best practices and industry trends.</p>
+                        <a
+                            href="https://www.linkedin.com/company/aaroh-manufacturing-consultancy/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn btn-dark"
+                        >
+                            <FaLinkedinIn /> Follow Us on LinkedIn
+                        </a>
+                    </AnimatedSection>
+                </div>
+            </section>
+
+            {/* ── Contact ── */}
             <section className="section bg-cream" id="contact">
                 <div className="container">
                     <AnimatedSection className="contact-header">
