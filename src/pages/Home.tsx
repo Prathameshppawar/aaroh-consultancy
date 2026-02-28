@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FaArrowRight, FaWhatsapp, FaLinkedinIn, FaFacebookF } from 'react-icons/fa';
 import SEOHead from '../components/SEOHead';
@@ -13,35 +13,6 @@ import processDocumentation from '../assets/Services/process_documentation.png';
 import erpAssistance from '../assets/Services/erp_assistance.png';
 import inventoryControl from '../assets/Services/inventory_control.png';
 import './Home.css';
-
-/** Preloads the hero background image and dismisses the loading screen */
-function HeroPreloader({ src }: { src: string }) {
-    useEffect(() => {
-        const loader = document.getElementById('app-loader');
-        if (!loader) return;
-
-        const img = new Image();
-        img.src = src;
-
-        const dismiss = () => {
-            loader.classList.add('hide');
-            // Remove from DOM after transition
-            setTimeout(() => loader.remove(), 600);
-        };
-
-        if (img.complete) {
-            dismiss();
-        } else {
-            img.onload = dismiss;
-            img.onerror = dismiss;
-            // Fallback timeout — don't block forever
-            setTimeout(dismiss, 5000);
-        }
-    }, [src]);
-
-    return null;
-}
-
 
 const services = [
     {
@@ -78,6 +49,23 @@ const differentiators = [
 ];
 
 export default function Home() {
+    const [heroLoaded, setHeroLoaded] = useState(false);
+
+    // Preload the hero background image
+    useEffect(() => {
+        const img = new Image();
+        img.src = heroBg;
+        if (img.complete) {
+            setHeroLoaded(true);
+        } else {
+            img.onload = () => setHeroLoaded(true);
+            img.onerror = () => setHeroLoaded(true);
+            // Fallback — never block for more than 5s
+            const t = setTimeout(() => setHeroLoaded(true), 5000);
+            return () => clearTimeout(t);
+        }
+    }, []);
+
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'LocalBusiness',
@@ -114,10 +102,11 @@ export default function Home() {
                 jsonLd={jsonLd}
             />
 
-            <HeroPreloader src={heroBg} />
-
-            {/* ── Hero ── */}
-            <section className="hero" style={{ backgroundImage: `url(${heroBg})` }}>
+            {/* ── Hero — blur-to-sharp ── */}
+            <section
+                className={`hero ${heroLoaded ? 'hero--loaded' : 'hero--loading'}`}
+                style={{ backgroundImage: `url(${heroBg})` }}
+            >
                 <div className="hero__overlay" />
                 <div className="container hero__inner">
                     <AnimatedSection className="hero__content">
