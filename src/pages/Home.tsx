@@ -105,7 +105,7 @@ export default function Home() {
             {/* ── Hero — blur-to-sharp ── */}
             <section
                 className={`hero ${heroLoaded ? 'hero--loaded' : 'hero--loading'}`}
-                style={{ backgroundImage: `url(${heroBg})` }}
+                style={{ '--hero-bg': `url(${heroBg})` } as React.CSSProperties}
             >
                 <div className="hero__overlay" />
                 <div className="container hero__inner">

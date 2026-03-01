@@ -7,19 +7,29 @@
     display: flex;
     align-items: center;
     padding-top: var(--nav-height);
+    overflow: hidden;
+}
+
+/* Background image via ::before — only this layer blurs */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: var(--hero-bg);
     transition: filter 1.2s ease-out, transform 1.2s ease-out;
+    z-index: 0;
 }
 
-/* Blur-to-sharp loading states */
-.hero--loading {
+/* Blur-to-sharp loading states — only affect the BG pseudo-element */
+.hero--loading::before {
     filter: blur(20px);
     transform: scale(1.05);
 }
 
-.hero--loaded {
+.hero--loaded::before {
     filter: blur(0);
     transform: scale(1);
 }
