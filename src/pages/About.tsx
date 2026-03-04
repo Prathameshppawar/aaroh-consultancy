@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import SEOHead from '../components/SEOHead';
 import AnimatedSection from '../components/AnimatedSection';
 import heroBg from '../assets/hero_about.png';
@@ -76,9 +77,9 @@ export default function About() {
                         <p>
                             Let's discuss how Aaroh can elevate your manufacturing operations to the next level.
                         </p>
-                        <a href="/#contact" className="btn btn-primary btn-lg">
+                        <Link to="/#contact" className="btn btn-primary btn-lg">
                             Start a Conversation
-                        </a>
+                        </Link>
                     </AnimatedSection>
                 </div>
             </section>

@@ -151,9 +151,9 @@ export default function Services() {
                             Let's discuss your specific requirements and create a tailored plan for your business growth.
                         </p>
                         <div className="services-cta__actions">
-                            <a href="/#contact" className="btn btn-primary btn-lg">
+                            <Link to="/#contact" className="btn btn-primary btn-lg">
                                 Get a Free Consultation <FaArrowRight />
-                            </a>
+                            </Link>
                             <Link to="/mission" className="btn btn-secondary btn-lg">
                                 Learn About Our Mission
                             </Link>

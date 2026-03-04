@@ -162,9 +162,9 @@ export default function Mission() {
                                 Contact or send a WhatsApp message: <strong>+91-9822295398</strong><br />
                                 Email: <strong>director@aarohmc.com</strong>
                             </p>
-                            <a href="/#contact" className="btn btn-primary btn-lg">
+                            <Link to="/#contact" className="btn btn-primary btn-lg">
                                 Get in Touch <FaArrowRight />
-                            </a>
+                            </Link>
                         </div>
                     </AnimatedSection>
                 </div>

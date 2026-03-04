@@ -13,21 +13,33 @@ const Blogs = lazy(() => import('./pages/Blogs'));
 const BlogPost = lazy(() => import('./pages/BlogPost'));
 
 function ScrollToHash() {
-  const { pathname, hash } = useLocation();
+  const { pathname, hash, key } = useLocation();
 
   useEffect(() => {
     if (hash) {
-      const timer = setTimeout(() => {
+      // The target section may not exist yet (lazy-loaded page).
+      // Poll until the element appears or 2 s have elapsed.
+      let cancelled = false;
+      const start = Date.now();
+
+      function tryScroll() {
+        if (cancelled) return;
         const el = document.querySelector(hash);
         if (el) {
           el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        } else if (Date.now() - start < 2000) {
+          requestAnimationFrame(tryScroll);
         }
-      }, 100);
-      return () => clearTimeout(timer);
+      }
+
+      // Kick off after a minimal delay so the route transition begins
+      requestAnimationFrame(tryScroll);
+
+      return () => { cancelled = true; };
     } else {
       window.scrollTo(0, 0);
     }
-  }, [pathname, hash]);
+  }, [pathname, hash, key]);
 
   return null;
 }
