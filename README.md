@@ -1,5 +1,6 @@
 # This website is live 
 @ https://aaroh-consultancy.pages.dev/
+<img width="1470" height="923" alt="image" src="https://github.com/user-attachments/assets/e8aea715-830f-4568-9022-b364ecc1e074" />
 
 <img width="875" height="777" alt="image" src="https://github.com/user-attachments/assets/0f629650-2c3e-4d86-a4a4-1b1f50fc9849" />
 Page speed might look bad for performance and seo but performance was managed with some visual effects in the mean time so user expereience is not hampered and SEO seems lacking 8 points because default cloudflare robots.txt is used which restricts bots from crawling  for collecting AI related content
